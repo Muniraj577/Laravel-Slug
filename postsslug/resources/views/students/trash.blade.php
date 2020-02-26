@@ -1,31 +1,30 @@
 @extends('layout')
-@section('title', 'Post Page')
+@section('title', 'Trash-List')
 @section('content')
     <div class="container-fluid mt-3">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Posts
-                    <a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Posts</a>
-                </div>
+                <div class="card-title">Trash Student List</div>
             </div>
             <div class="card-body">
-                <table id="posts" class="table table-striped table-bordered" style="width:100%">
+                <table id="trash-students" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
                         <th>S.N</th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th>Name</th>
+                        <th>Address</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($posts as $post)
+                    @foreach($students as $student)
                         <tr>
                             <td>{{++$id}}</td>
-                            <td>{{$post->title}}</td>
-                            <td>{{$post->description}}</td>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->address}}</td>
                             <td>
-                                <a href="{{route('posts.show', $post->slug)}}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{route('students.restore', $student->id)}}" class="btn btn-danger btn-sm">Restore</a>
+                                <a href="{{route('students.permanentDelete', $student->id)}}" class="btn btn-danger btn-sm">Delete Permanently</a>
                             </td>
                         </tr>
                     @endforeach
@@ -39,7 +38,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#posts').DataTable();
+            $('#trash-students').DataTable();
         });
     </script>
 @endsection

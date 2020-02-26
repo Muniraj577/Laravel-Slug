@@ -1,12 +1,10 @@
 @extends('layout')
-@section('title', 'Post Page')
+@section('title', 'Home Page')
 @section('content')
     <div class="container-fluid mt-3">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Posts
-                    <a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Posts</a>
-                </div>
+                <div class="card-title">Posts</div>
             </div>
             <div class="card-body">
                 <table id="posts" class="table table-striped table-bordered" style="width:100%">
@@ -31,6 +29,37 @@
                     @endforeach
                     </tbody>
                 </table>
+                <a href="{{route('posts.index')}}" class="btn btn-sm btn-primary float-right">View all</a>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-header">
+                <div class="card-title">Students</div>
+            </div>
+            <div class="card-body">
+                <table id="students" class="table table-striped table-bordered" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>S.N</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($students as $student)
+                        <tr>
+                            <td>{{++$id}}</td>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->address}}</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">Show</a>
+                                {{--{{route('students.show', $student->slug)}}--}}
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                <a href="#" class="btn btn-sm btn-primary float-right">View all</a>
             </div>
         </div>
     </div>
@@ -40,6 +69,7 @@
     <script>
         $(document).ready(function () {
             $('#posts').DataTable();
+            $('#students').DataTable();
         });
     </script>
 @endsection

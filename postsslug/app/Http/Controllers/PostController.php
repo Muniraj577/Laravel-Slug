@@ -15,7 +15,6 @@ class PostController extends Controller
         return view('posts.index', compact('posts'))->with('id');
     }
 
-
     public function create()
     {
         return view('posts.create');

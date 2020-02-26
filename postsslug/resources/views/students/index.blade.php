@@ -1,31 +1,32 @@
 @extends('layout')
-@section('title', 'Post Page')
+@section('title', 'Student-Page')
 @section('content')
     <div class="container-fluid mt-3">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Posts
-                    <a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Posts</a>
+                <div class="card-title">Students
+                    <a href="{{route('students.create')}}" class="btn btn-success float-right">Add Students</a>
+                    <a href="{{route('students.trash')}}" class="btn btn-primary float-right mr-3">Trash</a>
                 </div>
             </div>
             <div class="card-body">
-                <table id="posts" class="table table-striped table-bordered" style="width:100%">
+                <table id="students" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                     <tr>
                         <th>S.N</th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th>Name</th>
+                        <th>Address</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($posts as $post)
+                    @foreach($students as $student)
                         <tr>
                             <td>{{++$id}}</td>
-                            <td>{{$post->title}}</td>
-                            <td>{{$post->description}}</td>
+                            <td>{{$student->name}}</td>
+                            <td>{{$student->address}}</td>
                             <td>
-                                <a href="{{route('posts.show', $post->slug)}}" class="btn btn-primary btn-sm">Show</a>
+                                <a href="{{route('students.delete', $student->id)}}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     @endforeach
@@ -39,7 +40,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#posts').DataTable();
+            $('#students').DataTable();
         });
     </script>
 @endsection

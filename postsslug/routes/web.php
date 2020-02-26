@@ -16,8 +16,13 @@ use Illuminate\Support\Facades\Auth;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-
-Route::get('/', 'PostController@index')->name('posts.index');
+Route::get('/','HomeController@home')->name('home');
+Route::get('/posts-index', 'PostController@index')->name('posts.index');
 Route::get('/posts-create', 'PostController@create')->name('posts.create');
 Route::post('/posts-store', 'PostController@store')->name('posts.store');
 Route::get('/posts/{slug}', 'PostController@show')->name('posts.show');
+Route::get('students-index', 'StudentController@index')->name('students.index');
+Route::get('students-trash-list', 'StudentController@trashStudent')->name('students.trash');
+Route::get('students-create', 'StudentController@create')->name('students.create');
+Route::post('students-store', 'StudentController@store')->name('students.store');
+Route::get('students-delete/{id}', 'StudentController@delete')->name('students.delete');
