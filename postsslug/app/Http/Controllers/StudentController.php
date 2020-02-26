@@ -26,6 +26,13 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('success', 'Student data restored successfully.');
     }
 
+    public function restoreall()
+    {
+        $student = Student::onlyTrashed();
+        $student->restore();
+        return redirect()->route('students.index')->with('success', 'All students record restored successfully.');
+    }
+
     public function create()
     {
         return view('students.create');
@@ -64,6 +71,13 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
         return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
+    }
+
+    public function permanentDelete($id)
+    {
+        $student = Student::onlyTrashed()->where('id', $id);
+        $student->forceDelete();
+        return redirect()->route('students.index')->with('success', 'Student data deleted permanently.');
     }
 
     public function destroy(Student $student)

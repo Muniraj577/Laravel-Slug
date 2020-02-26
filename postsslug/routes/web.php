@@ -27,3 +27,5 @@ Route::get('students-create', 'StudentController@create')->name('students.create
 Route::post('students-store', 'StudentController@store')->name('students.store');
 Route::get('students-delete/{id}', 'StudentController@delete')->name('students.delete');
 Route::get('students-restore/{id}', 'StudentController@restore')->name('students.restore');
+Route::get('students-restore-all', 'StudentController@restoreall')->name('students.restore-all');
+Route::get('students-delete-permanently/{id}', 'StudentController@permanentDelete')->name('students.permanentDelete');

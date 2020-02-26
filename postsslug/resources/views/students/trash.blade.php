@@ -4,7 +4,10 @@
     <div class="container-fluid mt-3">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Trash Student List</div>
+                <div class="card-title">Trash Student List
+                    <a href="#" class="btn btn-danger btn-sm float-right">Permanently Delete all</a>
+                    <a href="{{route('students.restore-all')}}" class="btn btn-primary btn-sm float-right mr-3">Restore all</a>
+                </div>
             </div>
             <div class="card-body">
                 <table id="trash-students" class="table table-striped table-bordered" style="width:100%">
@@ -24,7 +27,7 @@
                             <td>{{$student->address}}</td>
                             <td>
                                 <a href="{{route('students.restore', $student->id)}}" class="btn btn-danger btn-sm">Restore</a>
-                                {{--<a href="{{route('students.permanentDelete', $student->id)}}" class="btn btn-danger btn-sm">Delete Permanently</a>--}}
+                                <a href="{{route('students.permanentDelete', $student->id)}}" class="btn btn-danger btn-sm">Delete Permanently</a>
                             </td>
                         </tr>
                     @endforeach

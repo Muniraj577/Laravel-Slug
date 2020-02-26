@@ -8,6 +8,13 @@
                     <a href="{{route('students.create')}}" class="btn btn-success float-right">Add Students</a>
                     <a href="{{route('students.trash')}}" class="btn btn-primary float-right mr-3">Trash</a>
                 </div>
+                <div class="mt-3">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                </div>
             </div>
             <div class="card-body">
                 <table id="students" class="table table-striped table-bordered" style="width:100%">
