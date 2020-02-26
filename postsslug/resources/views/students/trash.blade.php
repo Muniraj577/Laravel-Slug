@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-title">Trash Student List
-                    <a href="#" class="btn btn-danger btn-sm float-right">Permanently Delete all</a>
+                    <a href="{{ route('students.deleteAllPermanently') }}" class="btn btn-danger btn-sm float-right">Permanently Delete all</a>
                     <a href="{{route('students.restore-all')}}" class="btn btn-primary btn-sm float-right mr-3">Restore all</a>
                 </div>
             </div>

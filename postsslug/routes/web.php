@@ -29,3 +29,4 @@ Route::get('students-delete/{id}', 'StudentController@delete')->name('students.d
 Route::get('students-restore/{id}', 'StudentController@restore')->name('students.restore');
 Route::get('students-restore-all', 'StudentController@restoreall')->name('students.restore-all');
 Route::get('students-delete-permanently/{id}', 'StudentController@permanentDelete')->name('students.permanentDelete');
+Route::get('delete-all-students-permanently', 'StudentController@deleteAllPermanently')->name('students.deleteAllPermanently');

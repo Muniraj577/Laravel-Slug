@@ -80,6 +80,13 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('success', 'Student data deleted permanently.');
     }
 
+    public function deleteAllPermanently()
+    {
+        $student = Student::onlyTrashed();
+        $student->forceDelete();
+        return redirect()->route('students.index')->with('success', 'Trash is empty');
+    }
+
     public function destroy(Student $student)
     {
         //
