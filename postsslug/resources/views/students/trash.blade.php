@@ -24,7 +24,7 @@
                             <td>{{$student->address}}</td>
                             <td>
                                 <a href="{{route('students.restore', $student->id)}}" class="btn btn-danger btn-sm">Restore</a>
-                                <a href="{{route('students.permanentDelete', $student->id)}}" class="btn btn-danger btn-sm">Delete Permanently</a>
+                                {{--<a href="{{route('students.permanentDelete', $student->id)}}" class="btn btn-danger btn-sm">Delete Permanently</a>--}}
                             </td>
                         </tr>
                     @endforeach

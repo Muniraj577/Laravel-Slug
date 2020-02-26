@@ -19,9 +19,11 @@ class StudentController extends Controller
         return view('students.trash', compact('students'))->with('id');
     }
 
-    public function restore()
+    public function restore($id)
     {
-
+        $student = Student::onlyTrashed()->where('id', $id);
+        $student->restore();
+        return redirect()->route('students.index')->with('success', 'Student data restored successfully.');
     }
 
     public function create()

@@ -26,3 +26,4 @@ Route::get('students-trash-list', 'StudentController@trashStudent')->name('stude
 Route::get('students-create', 'StudentController@create')->name('students.create');
 Route::post('students-store', 'StudentController@store')->name('students.store');
 Route::get('students-delete/{id}', 'StudentController@delete')->name('students.delete');
+Route::get('students-restore/{id}', 'StudentController@restore')->name('students.restore');

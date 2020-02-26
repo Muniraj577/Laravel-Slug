@@ -43,6 +43,7 @@
                         <th>S.N</th>
                         <th>Name</th>
                         <th>Address</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
